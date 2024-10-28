@@ -1,0 +1,38 @@
+﻿@page
+@using MicrLab.Enums
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container text-center">
+    <h1 class="display-4 mb-4">Welcome to MicrLab</h1>
+    <p>Send a message to our TCP server using the form below.</p>
+
+    @if (Model.Status == PageStatus.Failure)
+    {
+        <div class="alert alert-danger" role="alert">
+            <strong>Error:</strong> @Model.FailureMessage
+        </div>
+    }
+    else if (Model.Status == PageStatus.Success)
+    {
+        <div class="alert alert-success" role="alert">
+            Your message was successfully sent!
+        </div>
+    }
+
+    <form method="post" class="form-signin mt-4">
+        <div class="form-group mb-3">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" class="form-control" placeholder="+78005553535" maxlength="12" required pattern="\+7\d{10}" title="Phone number must be in the format +78005553535 (12 characters)."/>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" class="form-control" rows="3" maxlength="200" placeholder="Enter your message here..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg mt-3">Send</button>
+    </form>
+</div>

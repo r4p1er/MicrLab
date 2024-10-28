@@ -1,0 +1,21 @@
+.container {
+    max-width: 600px;
+    margin-top: 50px;
+}
+
+.alert {
+    margin-top: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.btn-primary {
+    width: 100%;
+}
+
+.form-signin input,
+.form-signin textarea {
+    text-align: center;
+}
